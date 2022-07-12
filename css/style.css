@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    
 }
 a{
     text-decoration: none;
@@ -55,7 +54,7 @@ header::after{
 
 /* MENU DESKTOP */
 nav{
-    margin-right: 130px;
+    margin-right: 100px;
     margin-top: 30px;
 }
 
@@ -121,6 +120,7 @@ main{
     font-size: 17px;
     text-transform: uppercase;
     text-align: center;
+    outline: none;
 }
 
 .container_consulta input::placeholder{
@@ -128,13 +128,13 @@ main{
     text-transform: uppercase;
     color: rgb(175, 171, 171);
 }
+
 .container_consulta span{
     font-size: 16px;
     margin-left: 10px;
     padding-top: 5px;
     display: none;
     color: rgb(231, 38, 38);
-
 }
 
 .container_consulta button{
@@ -143,7 +143,7 @@ main{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
-    background-image: linear-gradient(#1E9BFF, #1E9BFF );
+    background-image: linear-gradient( #1E9BFF, #1c7cca);
     border: 1px solid #1E9BFF;
     font-size: 17px;
     font-weight: bold;
@@ -156,7 +156,6 @@ main{
 .container_consulta button:hover{
     color: #494949;
 }
-
 
 .container_consulta p{
     margin-left: 10px;
@@ -175,6 +174,7 @@ main{
     top: 500px;
     border-radius: 7px;
     border: 2px solid rgb(197, 193, 193);
+    margin-bottom: 100px;
 }
 
 .container_anuncio img{
@@ -183,11 +183,73 @@ main{
     border-radius: 7px;
 }
 
+.container_blog {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+    margin-top: 300px;
+    position: relative;
+    
+  }
+  .card_bg {
+    width: 280px;
+    height: 200px;
+    margin-right: 10px;
+    border-radius: 7px;
+    overflow: hidden;
+    transition: 0.3s;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.card_bg::before{
+    content: '';
+    color: #fff;
+    width: 280px;
+    display: block;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    border-radius: 7px;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .card_bg img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: 0.3s;
+    transform: scale(1.0);
+  }
+
+  .card_bg img:hover{
+    transform: scale(1.1);
+    z-index: 1000000;
+  }
+
+  .card_bg h1{
+    color: #fff;
+    position: absolute;
+    width: 280px;
+    text-align: center;
+    font-size: 22px;
+    top: 150px;
+    left: 0px;
+    z-index: 10000;
+  }
+
+  .post_blog{
+    margin-top: 150px;
+    position: absolute;
+    color: #494949;
+    font-size: 25px;
+  }
 
 /* FOOTER */
 footer{
     background-color: #1E9BFF;
-    margin-top: 200px;
+    margin-top: 100px;
     height: 100px;
 }
 
@@ -258,12 +320,13 @@ footer{
     top:-20px;
     border-radius: 0px 0px 7px 0px;
     z-index: 100;
-    
 }
+
 .menu_mobi ul {
     display: block;
     margin-top: 100px;
 }
+
 .menu_mobi ul li a{
     color: #fff;
     border:1px solid #fff;
@@ -274,17 +337,18 @@ footer{
     margin-left: 20px;
     margin-top: 15px;
 }
+
 .menu_mobi ul li a:hover{
     color: #1E9BFF;
     border-color: #1E9BFF;
 }
+
 .menu_mobi img{
     position: absolute;
     width: 40px;
     left: 140px;
     top: 30px;
     cursor: pointer;
-
 }
 
 .container_info{
@@ -297,21 +361,23 @@ footer{
     box-shadow: 0px 0px 5px 0px gray;
     border-radius: 7px;
     overflow-y: scroll;
-    display: none;
+    display: block;
 }
 
 .container_info img{
     width: 560px;
-    border:  3px dotted #000;
+    border: 2px solid rgb(197, 193, 193);
     display: block;
     margin: 10px;
 }
+
 #img_load{
-    width: 120px;
-    margin: 0 auto;
+    width: 50px;
+    margin: 25px auto;
     border: none;
-    display: none;
+    display: block;
 }
+
 .container_info .img-x{
     width: 30px;
     height: 30px;
@@ -320,8 +386,8 @@ footer{
     left: 530px;
     top: -7px;
     cursor: pointer;
-
 }
+
 .container_info::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
   }
@@ -331,18 +397,21 @@ footer{
   }
   
 .container_info::-webkit-scrollbar-thumb {
-    background-color: #fff;    /* color of the scroll thumb */
-    border-radius: 10px;       /* roundness of the scroll thumb */
-    border: 2px solid #494949;  /* creates padding around scroll thumb */
+    background-image: linear-gradient( #1E9BFF, #1578c9);
+    /* color of the scroll thumb */
+    border-radius: 7px;       /* roundness of the scroll thumb */
+    border: 2px solid #fff;  /* creates padding around scroll thumb */
     height: 10px; 
     width: 10px;
 }
+
 .container_info table{
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
 .container_info table tr td{
     width: 300px;
     border-bottom: 2px solid rgb(211, 205, 205);
@@ -351,12 +420,13 @@ footer{
     color:#162938;
     padding-left: 20px;
     padding-right: 20px;
-    
 }
+
 .container_info a{
     padding: 10px;
     transform: translateY(0px);
-    background-color: #1E9BFF;
+    background-image: linear-gradient( #1E9BFF, #1578c9);
+
     width: 100%;
     margin-top: 50px;
     display: block;
@@ -367,9 +437,11 @@ footer{
     text-align: center;
     transition:  0.3s;
 }
+
 .container_info a:hover{
     color: #494949;
 }
+
 .container_info p{
     background-color: #1E9BFF;
     padding: 10px;
@@ -389,7 +461,6 @@ footer{
 }
 
 /* PAGINA SOBRE */
-
 .container_sobre h1{
     transform: translateY(-85px);
     text-align: center;
@@ -397,7 +468,6 @@ footer{
     letter-spacing: 3px;
     margin-left: -40;
     color: #494949;
-    
 }
 
 .sobre{
@@ -407,17 +477,16 @@ footer{
     margin-left: 40px;
     transform: translateY(-50px);
 }
+
 .sobre h3{
-    background-color: #e0e0e0;
     width: 90%;
     padding: 8px;
     color: rgb(94, 91, 91);
     border-radius: 7px;
     border-left: 6px solid #1E9BFF;
-    margin-bottom: 7px;
-    box-shadow: 0px 0px 3px 0px rgb(110, 108, 108);
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px 0px rgb(110, 108, 108);
 }
-
 
 .sobre p{
     width: 90%;
@@ -426,31 +495,16 @@ footer{
     font-size: 16px;
     color: #646161;
     font-weight: 500;
-
 }
 
 .sobre_anuncio{
-    margin-top: 250px;
+    margin-top: 280px;
     margin-left: 60px;
 }
-
-
 
 .footer-sobre{
     margin-top: 200px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width:1200px){ 
     header::after{
@@ -469,13 +523,14 @@ footer{
         position: absolute;
         top: 500px;
         border-radius: 7px;
-        border: 5px dotted rgb(117, 115, 115);
+        border: 2px solid rgb(197, 193, 193);
     }
     
     .container_anuncio img{
         width: 800px;
        
     }
+
     .container_info{
         position: absolute;
         width: 600px;
@@ -488,6 +543,7 @@ footer{
         overflow-y: scroll;
         display: none;
     }
+
     .ctn-blog{
         width: 80%;
     
@@ -502,6 +558,7 @@ footer{
         left: 1%;
         z-index: -10;
     }
+
     .container_anuncio{
         background-size: cover;
         background-position: center;
@@ -511,13 +568,14 @@ footer{
         position: absolute;
         top: 450px;
         border-radius: 7px;
-        border: 5px dotted rgb(117, 115, 115);
+        border: 2px solid rgb(197, 193, 193);
     }
     
     .container_anuncio img{
         width: 800px;
        
     }
+
     .container_consulta{
         width: 450px;
         height: 250px;
@@ -525,9 +583,11 @@ footer{
         background-color: rgb(255, 255, 255,0.1);
         margin-bottom: 100px;
     }
+
     .ctn-blog{
         width: 80%;
     }
+
 }
 @media (max-width:1030px){ 
     header::after{
@@ -546,6 +606,7 @@ footer{
         z-index: -10;
         display: none;
     }
+
     .container_anuncio{
         background-size: cover;
         background-position: center;
@@ -553,7 +614,7 @@ footer{
         width: 80%;
         display: block;
         border-radius: 7px;
-        border: 5px dotted rgb(117, 115, 115);
+        border: 2px solid rgb(197, 193, 193);
         margin-left: 80px;
     }
     
@@ -562,6 +623,7 @@ footer{
         margin:  0 auto;
        
     }
+
     .container_consulta{
         width: 400px;
         height: 250px;
@@ -569,6 +631,7 @@ footer{
         background-color: rgb(255, 255, 255,0.1);
         margin:  0 auto;
     }
+
     nav{
         margin-right: 50px;
         margin-top: 39px;
@@ -597,10 +660,12 @@ footer{
         color: #494949;
         border-color:#494949;
     }
+
     main{
         margin-left: 0;
         margin-top: 100px;
     }
+
     .container_info{
         position: absolute;
         width: 600px;
@@ -613,14 +678,77 @@ footer{
         overflow-y: scroll;
         display: none;
     }
-    
+
+    .container_blog {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0px;
+        margin-top: 300px;
+        position: relative;
+        margin-left: 200px;
+      }
+
+      .card_bg {
+        width: 280px;
+        height: 200px;
+        margin-right: 10px;
+        border-radius: 7px;
+        overflow: hidden;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .card_bg::before{
+        content: '';
+        color: #fff;
+        width: 280px;
+        display: block;
+        height: 200px;
+        position: absolute;
+        top: 0px;
+        border-radius: 7px;
+        background-color: rgba(0,0,0,0.5);
+      }
+
+      .card_bg img{
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: 0.3s;
+        transform: scale(1.0);
+      }
+
+      .card_bg img:hover{
+        transform: scale(1.1);
+        z-index: 1000000;
+      }
+
+      .card_bg h1{
+        color: #fff;
+        position: absolute;
+        width: 280px;
+        text-align: center;
+        font-size: 22px;
+        top: 150px;
+        left: 0px;
+        z-index: 10000;
+      }
+
+      .post_blog{
+        margin-top: 250px;
+        position: absolute;
+        color: #494949;
+        font-size: 25px;
+        left: 200px
+      }
 }
 
 @media (max-width:750px){
     main{
         margin-top: 80px;
     }
-    
+
     .container_consulta{
         width: 400px;
         height: 250px;
@@ -661,7 +789,7 @@ footer{
         margin-top: 20px;
         margin-bottom: 10px;
         margin-left: 10px;
-        background-image: linear-gradient(#1E9BFF, #1E9BFF );
+        background-image: linear-gradient(#1E9BFF, #74c0ff );
         border: 1px solid #1E9BFF;
         font-size: 17px;
         font-weight: bold;
@@ -675,18 +803,19 @@ footer{
         color: #494949;
     }
     
-    
     .container_consulta p{
         margin-left: 10px;
         color: #aca9a9;
         margin-bottom: 10px;
         font-size: 15px;
     }
+    
     nav{
         margin-right: 130px;
         margin-top: 30px;
         display: none;
     }
+
     .container_logo{
         margin:  20px auto;
         position: relative;
@@ -707,6 +836,7 @@ footer{
         height: 35px;
         display: inline-block;
     }
+
     .mobile-container {
         max-width: 480px;
         margin: auto;
@@ -715,7 +845,7 @@ footer{
         color: white;
         border-radius: 10px;
         display: block;
-      }
+    }
     
     .mobile-container img{
         width: 30px;
@@ -723,6 +853,7 @@ footer{
         margin-top: 20px;
         cursor: pointer;
     }
+
     .container_anuncio{
         background-size: cover;
         background-position: center;
@@ -730,7 +861,7 @@ footer{
         width: 95%;
         display: block;
         border-radius: 7px;
-        border: 5px dotted rgb(117, 115, 115);
+        border: 2px solid rgb(197, 193, 193);
         margin-left: 10px;
         transform: translateY(-10px);
     }
@@ -743,7 +874,7 @@ footer{
     
     footer{
         background-color: #1E9BFF;
-        margin-top: 300px;
+        margin-top: 60px;
         height: 60px;
         
     }
@@ -784,6 +915,7 @@ footer{
        color: gray;
        font-size: 15px;
     }
+
     .seta{
       display: block;
     }
@@ -791,6 +923,7 @@ footer{
     .menu_mobi{
         display: block;
     }
+
     .container_info{
         position: absolute;
         width: 395px;
@@ -806,13 +939,15 @@ footer{
         margin-bottom: 10px;
         z-index: 100;
     }
+    
     .container_info img{
         width: 355px;
         height: 100px;
-        border:  3px dotted #000;
+        border: 2px solid rgb(197, 193, 193);
         display: block;
         margin: 10px;
     }
+
     .container_info .img-x{
         width: 30px;
         height: 30px;
@@ -821,10 +956,10 @@ footer{
         left: 330px;
         top: -7px;
         cursor: pointer;
-    
     }
+
     .sobre_anuncio{
-        margin-top: 600px;
+        margin-top: 700px;
     }
    
     .container_footer img{
@@ -834,6 +969,7 @@ footer{
         width: 35px;
         top: 12px
     }
+
     .container_footer a{
         display: block;
         position: absolute;
@@ -848,16 +984,17 @@ footer{
     .container_footer a:hover{
         color: #152836;
     }
+
     .copy{
         margin-top: 10px;
         padding: 10px;
-        
     }
+
     .copy p{
         padding: 5px;
         margin-top: -10px;
-        
     }
+
     .container_info table{
         width: 390px;
         display: block;
@@ -867,6 +1004,7 @@ footer{
         margin-bottom: 10px;
         overflow: scroll;
     }
+
     .container_info table tr td{
         border-bottom: 2px solid rgb(211, 205, 205);
         border-collapse: collapse;
@@ -875,9 +1013,72 @@ footer{
         padding-left: 20px;
         padding-right: -10px;
         overflow: scroll;
-        
     }
-    
+
+    .container_blog {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0px;
+        margin-top: 300px;
+        position: relative;
+        margin-left: 30px;
+      }
+
+      .card_bg {
+        width: 120%;
+        height: 200px;
+        margin-right: 10px;
+        border-radius: 7px;
+        overflow: hidden;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .card_bg::before{
+        content: '';
+        color: #fff;
+        width: 280px;
+        display: block;
+        height: 200px;
+        position: absolute;
+        top: 0px;
+        border-radius: 7px;
+        background-color: rgba(0,0,0,0.5);
+      }
+
+      .card_bg img{
+        width: 120%;
+        height: 100%;
+        display: block;
+        transition: 0.3s;
+        transform: scale(1.0);
+      }
+
+      .card_bg img:hover{
+        transform: scale(1.1);
+        z-index: 1000000;
+      }
+
+      .card_bg h1{
+        color: #fff;
+        position: absolute;
+        width: 280px;
+        text-align: center;
+        font-size: 22px;
+        top: 150px;
+        left: 0px;
+        z-index: 10000;
+      }
+
+      .post_blog{
+        margin-top: 250px;
+        position: absolute;
+        color: #494949;
+        font-size: 25px;
+        left: 100px;
+        top: 380px;
+      }
     
 }
 

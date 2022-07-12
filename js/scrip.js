@@ -1,16 +1,29 @@
-let menu_mobie_block = document.getElementById('menu_mobile_block')
-let mobile_container = document.querySelector('.mobile_container');
-let btnConsulta = document.getElementById('btnConsulta');
-let table = document.querySelector('.table');
-let input = document.getElementById('input')
-let container_info = document.querySelector('.container_info');
-let img_x = document.querySelector(".img_x")
-let img_load = document.getElementById("img_load");
-let qntd = 0;
-let menu_mobie_none = document.getElementById('menu_mobie_none')
-let alerta_inpuVazio = document.querySelector('.alerta_inpuVazio');
+let 
+menuMobile,
+containerMobile,
+btnConsulta,
+tabela,
+input,
+container_info,
+btnVolta,
+imgCarregando,
+qntd,
+menuMobileNone,
+msgAlerta;
 
-img_x.addEventListener("click", () => {
+menuMobile = document.getElementById('menu_mobile_block')
+containerMobile = document.querySelector('.mobile_container');
+btnConsulta = document.getElementById('btnConsulta');
+tabela = document.querySelector('.table');
+input = document.getElementById('input')
+container_info = document.querySelector('.container_info');
+btnVolta = document.querySelector(".img_x")
+imgCarregando = document.getElementById("img_load");
+qntd = 0;
+menuMobileNone = document.getElementById('menu_mobie_none')
+msgAlerta = document.querySelector('.alerta_inpuVazio');
+
+btnVolta.addEventListener("click", () => {
     container_info.style.display = 'none';
 })
 
@@ -19,91 +32,109 @@ btnConsulta.addEventListener("click", () => {
     if (input.value !== '' && input.value !== null && input.value !== undefined && qntd <= 0) {
         if (input.value.length > 10) {
  
-            img_load.style.display = 'block';
+            imgCarregando.style.display = 'block';
            
             let cpnjValido = input.value.replace(/[^0-9]/g, "");
 
-            alerta_inpuVazio.style.display = 'none';
+            msgAlerta.style.display = 'none';
             container_info.style.display = 'block'
           
-            fetch(`https://publica.cnpj.ws/cnpj/${cpnjValido}`, {
-                method: "GET",
+            fetch(`https://177.71.234.229:3009/cnpj`, {
+                method: "POST",
                 headers: {
-                    "content-type": "aplication/json"
-                },
+                     'Accept': 'application/json',
+                      'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "cnpj" : cpnjValido
+                })
 
+            })
+
+             const recebi = async ()  => {
+                await fetch(`https://177.71.234.229:3009`,{
+                method: "GET"
             })
                 .then(function (resp) {
                     resp.json()
                         .then(function (data) {
                             
-
-                            img_load.style.display = 'none';
+                            if(data.msg.status === 400){
+                                imgCarregando.style.display = 'none';
+                                return tabela.innerHTML = `
+                                <tr>
+                                <td><strong>CNPJ</strong</td>
+                                <td>Erro - CNPJ não encontrado</td>
+                            </tr>`
+                            }
+                            let dadosCnpj = data.msg;
                             
-                        table.innerHTML = `
+
+                            imgCarregando.style.display = 'none';
+                            
+                        tabela.innerHTML = `
                             <tr>
                             <td><strong>CNPJ</strong</td>
-                            <td>${data.estabelecimento.cnpj}</td>
+                            <td>${dadosCnpj.estabelecimento.cnpj}</td>
                         </tr>
                         <tr>
                             <td><strong>Razão social</strong</td>
-                            <td>${data.razao_social}</td>
+                            <td>${dadosCnpj.razao_social}</td>
                         </tr>
                         <tr>
                             <td><strong>Atividade principal</strong</td>
-                            <td>${data.estabelecimento.atividade_principal.descricao}</td>
+                            <td>${dadosCnpj.estabelecimento.atividade_principal.descricao}</td>
                         </tr>
                         <tr>
                             <td><strong>Situação cadastral</strong></td>
-                            <td class="st_cadastral"><strong>${data.estabelecimento.situacao_cadastral}</strong></td>
+                            <td class="st_cadastral"><strong>${dadosCnpj.estabelecimento.situacao_cadastral}</strong></td>
                         </tr>
                         <tr>
                             <td><strong>Nome fantasia</strong></td>
-                            <td>${data.estabelecimento.nome_fantasia}</td>
+                            <td>${dadosCnpj.estabelecimento.nome_fantasia}</td>
                         </tr>
                         <tr>
                         <td><strong>Porte</strong></td>
-                        <td>${data.porte.descricao}</td>
+                        <td>${dadosCnpj.porte.descricao}</td>
                     </tr>
                         <tr>
                             <td><strong>E-mail</strong></td>
-                            <td>${data.estabelecimento.email}</td>
+                            <td>${dadosCnpj.estabelecimento.email}</td>
                         </tr>
                         <tr>
                             <td><strong>Cep</strong></td>
-                            <td>${data.estabelecimento.cep}</td>
+                            <td>${dadosCnpj.estabelecimento.cep}</td>
                         </tr>
                         <tr>
                             <td><strong>Estado</strong></td>
-                            <td>${data.estabelecimento.estado.nome}</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td><strong>Bairro</strong></td>
-                            <td>${data.estabelecimento.bairro}</td>
+                            <td>${dadosCnpj.estabelecimento.bairro}</td>
                         </tr>
                         <tr>
                             <td><strong>Cidade</strong></td>
-                            <td>${data.estabelecimento.cidade.nome}</td>
+                            <td>${dadosCnpj.estabelecimento.cidade}</td>
                         </tr>
                         <tr>
                             <td><strong>Tipo</strong></td>
-                            <td>${data.estabelecimento.tipo}</td>
+                            <td>${dadosCnpj.estabelecimento.tipo}</td>
                         </tr>
                         <tr>
                             <td><strong>Telefone</strong></td>
-                            <td>${data.estabelecimento.telefone1}</td>
+                            <td>${dadosCnpj.estabelecimento.telefone1}</td>
                         </tr>
                         <tr>
                             <td><strong>Data inicio da atividade</strong></td>
-                            <td>${data.estabelecimento.data_inicio_atividade}</td>
+                            <td>${dadosCnpj.estabelecimento.data_inicio_atividade}</td>
                         </tr>
                         <tr>
                             <td><strong>Data situação cadastral</strong></td>
-                            <td>${data.estabelecimento.data_situacao_cadastral}</td>
+                            <td>${dadosCnpj.estabelecimento.data_situacao_cadastral}</td>
                         </tr>
                         <tr>
                             <td><strong>Capital social</strong></td>
-                            <td>${data.capital_social}</td>
+                            <td>${dadosCnpj.capital_social}</td>
                         </tr>
                         
                         
@@ -111,7 +142,7 @@ btnConsulta.addEventListener("click", () => {
                         `
                         let st_cadastral = document.querySelector('.st_cadastral');
                     
-                            if(data.estabelecimento.situacao_cadastral === "Ativa"){
+                            if(dadosCnpj.estabelecimento.situacao_cadastral === "Ativa"){
                                  st_cadastral.style.color = '#43a843';
                             }else{
                                 st_cadastral.style.color =  'red';
@@ -121,28 +152,31 @@ btnConsulta.addEventListener("click", () => {
                 })
 
             qntd++
-           
-
+            
             setTimeout(() => {
                 qntd = 0;
             }, 10000)
         }
+        setTimeout(() => {
+            recebi()
+        },500);
+    }
     }else{
-        alerta_inpuVazio.style.display = 'block';
+        msgAlerta.style.display = 'block';
 
         setTimeout(() => {
-            alerta_inpuVazio.style.display = 'none';
+            msgAlerta.style.display = 'none';
 
         },5000)
     }
 })
-menu_mobie_block.addEventListener("click", () => {
-    mobile_container.style.display = 'block';
+menuMobile.addEventListener("click", () => {
+    containerMobile.style.display = 'block';
 
 })
 
-menu_mobie_none.addEventListener("click", () => {
-    mobile_container.style.display = 'none';
+menuMobileNone.addEventListener("click", () => {
+    containerMobile.style.display = 'none';
 
 })
 

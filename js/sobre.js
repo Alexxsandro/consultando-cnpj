@@ -1,16 +1,19 @@
-let menu_mobie_block = document.getElementById('menu_mobile_block')
-let mobile_container = document.querySelector('.mobile_container');
+let
+menuMobile,
+mobile,
+menuMobileNone;
 
+menuMobile = document.getElementById('menu_mobile_block')
+mobile = document.querySelector('.mobile_container');
+menuMobileNone = document.getElementById('menu_mobie_none')
 
-menu_mobie_block.addEventListener("click", () => {
+menuMobile.addEventListener("click", () => {
 
-    mobile_container.style.display = 'block';
+    mobile.style.display = 'block';
 })
 
-let menu_mobie_none = document.getElementById('menu_mobie_none')
+menuMobileNone.addEventListener("click", () => {
 
-menu_mobie_none.addEventListener("click", () => {
-
-    mobile_container.style.display = 'none';
+    mobile.style.display = 'none';
 })
 
