@@ -361,7 +361,7 @@ footer{
     box-shadow: 0px 0px 5px 0px gray;
     border-radius: 7px;
     overflow-y: scroll;
-    display: block;
+    display: none;
 }
 
 .container_info img{

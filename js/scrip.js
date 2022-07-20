@@ -39,7 +39,7 @@ btnConsulta.addEventListener("click", () => {
             msgAlerta.style.display = 'none';
             container_info.style.display = 'block'
           
-            fetch(`https://177.71.234.229:3009/cnpj`, {
+            fetch(`http://localhost:3000/cnpj`, {
                 method: "POST",
                 headers: {
                      'Accept': 'application/json',
@@ -51,7 +51,7 @@ btnConsulta.addEventListener("click", () => {
             })
 
              const recebi = async ()  => {
-                await fetch(`https://177.71.234.229:3009`,{
+                await fetch(`http://localhost:3000/`,{
                 method: "GET"
             })
                 .then(function (resp) {
